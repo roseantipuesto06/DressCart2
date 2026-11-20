@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DressCart | Admin Dashboard</title>
+
+    <link rel="stylesheet" href="css/admin.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ADMIN LOGIN -->
+    <section class="admin-login" id="adminLogin">
+
+        <div class="login-card">
+
+            <h1>dress<span>cart.</span></h1>
+
+            <p>ADMINISTRATION PANEL</p>
+
+            <h2>Welcome, Admin</h2>
+
+            <p>Sign in to manage your store.</p>
+
+            <form id="adminLoginForm">
+
+                <label for="adminEmail">Admin Email</label>
+
+                <input
+                    type="email"
+                    id="adminEmail"
+                    required
+                    placeholder="Enter admin email"
+                >
+
+                <label for="adminPassword">Password</label>
+
+<div class="password-wrapper">
+    <input
+        type="password"
+        id="adminPassword"
+        required
+        placeholder="Enter admin password"
+    >
+
+    <button type="button" id="toggleAdminPassword">
+        Show
+    </button>
+</div>
+
+                <button type="submit">Sign In</button>
+
+                <p id="adminLoginMessage"></p>
+
+            </form>
+
+            <a href="index.html">← Back to Shopping Page</a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ADMIN DASHBOARD -->
+    <div class="admin-layout" id="adminDashboard" hidden>
+
+        <!-- SIDEBAR -->
+        <aside class="admin-sidebar">
+
+            <h2>dress<span>cart.</span></h2>
+
+            <p>ADMIN PANEL</p>
+
+            <nav>
+
+                <button class="active" data-section="overview">
+                    Overview
+                </button>
+
+                <button data-section="transactions">
+                    Transactions
+                </button>
+
+                <button data-section="analytics">
+                    Sales Analytics
+                </button>
+
+                <button data-section="archive">
+                    Archive
+                </button>
+
+            </nav>
+
+            <button id="adminLogout" class="logout-btn">
+                Log Out
+            </button>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="admin-main">
+
+            <header class="admin-header">
+
+                <div>
+                    <p>ADMINISTRATION</p>
+                    <h1 id="sectionTitle">Dashboard Overview</h1>
+                </div>
+
+                <a href="index.html">View Store ↗</a>
+
+            </header>
+
+
+            <!-- OVERVIEW -->
+            <section class="admin-section" id="overviewSection">
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+                        <p>Total Sales</p>
+                        <h2 id="totalSales">₱0.00</h2>
+                    </div>
+
+                    <div class="stat-card">
+                        <p>Total Transactions</p>
+                        <h2 id="totalTransactions">0</h2>
+                    </div>
+
+                    <div class="stat-card">
+                        <p>Pending Orders</p>
+                        <h2 id="pendingOrders">0</h2>
+                    </div>
+
+                    <div class="stat-card">
+                        <p>Completed Orders</p>
+                        <h2 id="completedOrders">0</h2>
+                    </div>
+
+                </div>
+
+                <div class="admin-panel">
+
+                    <h2>Recent Transactions</h2>
+
+                    <div id="recentTransactions"></div>
+
+                </div>
+
+            </section>
+
+
+            <!-- TRANSACTIONS -->
+            <section class="admin-section" id="transactionsSection" hidden>
+
+                <div class="admin-panel">
+
+                    <h2>All Transactions</h2>
+
+                    <div class="table-wrap">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Date</th>
+                                    <th>Payment</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="transactionsTable"></tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- SALES ANALYTICS -->
+            <section class="admin-section" id="analyticsSection" hidden>
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+                        <p>Today's Sales</p>
+                        <h2 id="dailySales">₱0.00</h2>
+                    </div>
+
+                    <div class="stat-card">
+                        <p>This Week's Sales</p>
+                        <h2 id="weeklySales">₱0.00</h2>
+                    </div>
+
+                    <div class="stat-card">
+                        <p>This Month's Sales</p>
+                        <h2 id="monthlySales">₱0.00</h2>
+                    </div>
+
+                </div>
+
+                <div class="admin-panel">
+
+                    <h2>Sales Summary</h2>
+
+                    <p id="analyticsMessage"></p>
+
+                </div>
+
+            </section>
+
+
+            <!-- ARCHIVE -->
+            <section class="admin-section" id="archiveSection" hidden>
+
+                <div class="admin-panel">
+
+                    <h2>Archived Transactions</h2>
+
+                    <div id="archiveTransactions"></div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- ADMIN JAVASCRIPT -->
+    <script src="js/admin.js"></script>
+
+</body>
+</html>

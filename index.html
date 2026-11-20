@@ -1,0 +1,852 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DressCart | Your Style, Your Story</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+<!-- Leaflet Map CSS -->
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="header-left">
+            <button class="icon-btn" id="menuBtn" aria-label="Open menu">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <a href="#" class="logo">dress<span>cart.</span></a>
+        </div>
+
+        <nav class="desktop-nav">
+            <a href="#home">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#categories">Categories</a>
+            <a href="#new-arrivals">New Arrivals</a>
+        </nav>
+
+        <div class="header-actions">
+
+            <button class="icon-btn" id="searchBtn" aria-label="Search">
+                <i data-lucide="search"></i>
+            </button>
+
+            <button class="icon-btn" id="themeBtn" aria-label="Change theme">
+                <i data-lucide="moon"></i>
+            </button>
+
+            <button class="icon-btn cart-header" id="cartBtn" aria-label="Shopping cart">
+                <i data-lucide="shopping-bag"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- SEARCH BAR -->
+    <div class="search-panel" id="searchPanel">
+        <input type="text" id="searchInput"
+            placeholder="Search your favorite dresses...">
+        <button id="closeSearch" class="icon-btn" aria-label="Close search">
+            <i data-lucide="x"></i>
+        </button>
+    </div>
+
+    <!-- SIDEBAR OVERLAY -->
+    <div class="overlay" id="sidebarOverlay"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-top">
+            <a href="#" class="logo">dress<span>cart.</span></a>
+            <button class="icon-btn" id="closeSidebar" aria-label="Close menu">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+
+        <div class="sidebar-welcome">
+            <p>WELCOME TO DRESSCART</p>
+            <h2>Your style starts here.</h2>
+        </div>
+
+        <div class="sidebar-links">
+            <a href="#home"><i data-lucide="house"></i> Home</a>
+            <a href="#shop"><i data-lucide="shopping-bag"></i> Shop Dresses</a>
+            <a href="#categories"><i data-lucide="layout-grid"></i> Categories</a>
+            <a href="#new-arrivals"><i data-lucide="sparkles"></i> New Arrivals</a>
+        </div>
+
+        <div class="sidebar-divider"></div>
+
+        <p class="sidebar-label">MY ACCOUNT</p>
+
+        <div class="sidebar-links">
+            <button class="sidebar-link" id="loginBtn">
+                <i data-lucide="log-in"></i> Login
+            </button>
+
+            <button class="sidebar-link" id="registerBtn">
+                <i data-lucide="user-plus"></i> Create Account
+            </button>
+
+            <button class="sidebar-link" id="ordersBtn">
+                <i data-lucide="package"></i> My Orders
+            </button>
+
+            <button class="sidebar-link" id="wishlistBtn">
+                <i data-lucide="heart"></i> My Wishlist
+            </button>
+        </div>
+
+        <div class="sidebar-bottom">
+            <p>DressCart Online Shopping</p>
+            <small>Your Style, Your Story.</small>
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- HERO -->
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+                <p class="eyebrow">THE NEW COLLECTION IS HERE</p>
+
+                <h1>Find the dress<br>that feels like <em>you.</em></h1>
+
+                <p class="hero-description">
+                    Discover beautiful styles for every mood,
+                    every moment, and every version of you.
+                </p>
+
+                <a href="#shop" class="primary-btn">
+                    Explore Collection
+                    <i data-lucide="arrow-right"></i>
+                </a>
+
+                <div class="hero-note">
+                    <span>♡</span> Made for your everyday moments.
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img
+                    src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=900"
+                    alt="Fashion collection">
+                <div class="hero-image-label">
+                    <span>01 / COLLECTION</span>
+                    <strong>Everyday Elegance</strong>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- BENEFITS -->
+        <section class="benefits">
+            <div>
+                <i data-lucide="truck"></i>
+                <span>Convenient Delivery</span>
+            </div>
+
+            <div>
+                <i data-lucide="shield-check"></i>
+                <span>Secure Shopping</span>
+            </div>
+
+            <div>
+                <i data-lucide="heart"></i>
+                <span>Styles You'll Love</span>
+            </div>
+
+            <div>
+                <i data-lucide="headset"></i>
+                <span>Customer Support</span>
+            </div>
+        </section>
+
+        <!-- CATEGORIES -->
+        <section class="section" id="categories">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">FIND YOUR STYLE</p>
+                    <h2>Shop by category</h2>
+                </div>
+            </div>
+
+            <div class="category-list">
+
+                <button class="category-card active" data-category="All">
+                    <span>✦</span>
+                    <strong>All Styles</strong>
+                </button>
+
+                <button class="category-card" data-category="Casual">
+                    <span>♡</span>
+                    <strong>Casual</strong>
+                </button>
+
+                <button class="category-card" data-category="Elegant">
+                    <span>✧</span>
+                    <strong>Elegant</strong>
+                </button>
+
+                <button class="category-card" data-category="Party">
+                    <span>☆</span>
+                    <strong>Party Wear</strong>
+                </button>
+
+                <button class="category-card" data-category="Summer">
+                    <span>☀</span>
+                    <strong>Summer</strong>
+                </button>
+
+                <button class="category-card" data-category="Formal">
+                    <span>◇</span>
+                    <strong>Formal</strong>
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- PRODUCTS -->
+        <section class="section shop-section" id="shop">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">CURATED FOR YOU</p>
+                    <h2>Explore our collection</h2>
+                    <p class="section-subtitle">
+                        Find something beautiful to wear.
+                    </p>
+                </div>
+
+                <select id="sortProducts" class="sort-select">
+                    <option value="default">Sort by: Featured</option>
+                    <option value="low">Price: Low to High</option>
+                    <option value="high">Price: High to Low</option>
+                    <option value="name">Name: A to Z</option>
+                </select>
+            </div>
+
+            <div class="filter-bar">
+                <span id="productTotal">12 Products</span>
+
+                <button class="filter-btn" id="clearFilters">
+                    <i data-lucide="rotate-ccw"></i>
+                    Clear Filters
+                </button>
+            </div>
+
+            <div class="product-grid" id="productGrid">
+                <!-- Products generated by JavaScript -->
+            </div>
+
+            <p class="empty-message" id="emptyMessage" hidden>
+                No dresses found. Try another search.
+            </p>
+
+        </section>
+
+        <!-- NEW ARRIVALS -->
+        <section class="new-arrivals" id="new-arrivals">
+            <div>
+                <p class="eyebrow">JUST LANDED</p>
+                <h2>A little something<br><em>new for you.</em></h2>
+                <p>Discover fresh styles and find your next favorite outfit.</p>
+                <a href="#shop" class="secondary-btn">Shop New Arrivals</a>
+            </div>
+
+            <img
+                src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=800"
+                alt="New fashion arrivals">
+        </section>
+
+    </main>
+
+    <!-- PRODUCT DETAILS MODAL -->
+    <div class="modal-overlay" id="productModal">
+
+        <div class="product-modal">
+
+            <button class="modal-close icon-btn" id="closeProductModal"
+                aria-label="Close product details">
+                <i data-lucide="x"></i>
+            </button>
+
+            <div class="modal-image">
+                <img id="modalImage" src="" alt="Selected dress">
+            </div>
+
+            <div class="modal-details">
+
+                <p class="eyebrow">DRESSCART COLLECTION</p>
+                <h2 id="modalName"></h2>
+
+                <h3 id="modalPrice"></h3>
+
+                <p id="modalDescription" class="modal-description"></p>
+
+                <label>Choose Size</label>
+                <div class="size-options" id="sizeOptions"></div>
+
+                <label>Choose Color</label>
+                <div class="color-options" id="colorOptions"></div>
+
+                <label>Quantity</label>
+                <div class="quantity-control">
+                    <button id="modalMinus">−</button>
+                    <span id="modalQuantity">1</span>
+                    <button id="modalPlus">+</button>
+                </div>
+
+                <button class="primary-btn add-modal-btn" id="modalAddCart">
+                    Add to Shopping Bag
+                    <i data-lucide="shopping-bag"></i>
+                </button>
+
+                <p class="stock-note" id="stockNote"></p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CART DRAWER OVERLAY -->
+    <div class="overlay" id="cartOverlay"></div>
+
+    <!-- CART DRAWER -->
+    <aside class="cart-drawer" id="cartDrawer">
+
+        <div class="cart-heading">
+            <div>
+                <p class="eyebrow">YOUR SELECTIONS</p>
+                <h2>Shopping Bag</h2>
+            </div>
+
+            <button class="icon-btn" id="closeCart" aria-label="Close cart">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items generated by JavaScript -->
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-subtotal">
+                <span>Subtotal</span>
+                <strong id="cartSubtotal">₱0.00</strong>
+            </div>
+
+            <p>Shipping and payment will be calculated at checkout.</p>
+
+            <button class="primary-btn checkout-btn" id="checkoutBtn">
+                Proceed to Checkout
+                <i data-lucide="arrow-right"></i>
+            </button>
+
+            <button class="continue-shopping" id="continueShopping">
+                Continue Shopping
+            </button>
+        </div>
+
+    </aside>
+
+<!-- PART 3: CHECKOUT MODAL -->
+<div class="checkout-overlay" id="checkoutOverlay">
+  <div class="checkout-modal">
+    <div class="checkout-header">
+      <div>
+        <span class="checkout-eyebrow">DRESSCART CHECKOUT</span>
+        <h2>Complete Your Order</h2>
+      </div>
+      <button type="button" class="checkout-close" id="closeCheckout">×</button>
+    </div>
+
+    <form id="checkoutForm">
+      <div class="checkout-section">
+        <h3>Delivery Information</h3>
+
+        <label for="customerName">Full Name</label>
+        <input id="customerName" type="text" placeholder="Enter your full name" required>
+
+        <label for="customerEmail">Email Address</label>
+        <input id="customerEmail" type="email" placeholder="Enter your email" required>
+
+        <label for="customerPhone">Phone Number</label>
+        <input id="customerPhone" type="tel" placeholder="09XXXXXXXXX" pattern="09[0-9]{9}" required>
+
+        <label for="customerAddress">Complete Delivery Address</label>
+        <textarea id="customerAddress" rows="3" placeholder="House number, street, barangay, city, province" required></textarea>
+
+        <label for="orderNotes">Additional Notes (Optional)</label>
+        <textarea id="orderNotes" rows="2" placeholder="Landmark or delivery instructions"></textarea>
+      </div>
+
+      <div class="checkout-section">
+        <h3>Payment Method</h3>
+
+        <div class="payment-options">
+          <label class="payment-option">
+            <input type="radio" name="paymentMethod" value="GCash" required>
+            <span class="payment-icon gcash-icon">G</span>
+            <span>
+              <strong>GCash</strong>
+              <small>Demo payment option</small>
+            </span>
+          </label>
+
+          <label class="payment-option">
+            <input type="radio" name="paymentMethod" value="Card">
+            <span class="payment-icon card-icon">▣</span>
+            <span>
+              <strong>Credit / Debit Card</strong>
+              <small>Demo payment option</small>
+            </span>
+          </label>
+
+          <label class="payment-option">
+            <input type="radio" name="paymentMethod" value="Cash on Delivery">
+            <span class="payment-icon cod-icon">₱</span>
+            <span>
+              <strong>Cash on Delivery</strong>
+              <small>Pay when your order arrives</small>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="checkout-section">
+        <h3>Order Summary</h3>
+        <div class="checkout-summary-row">
+          <span>Subtotal</span>
+          <strong id="checkoutSubtotal">₱0.00</strong>
+        </div>
+        <div class="checkout-summary-row">
+          <span>Shipping Fee</span>
+          <strong id="checkoutShipping">₱50.00</strong>
+        </div>
+        <div class="checkout-summary-row checkout-total">
+          <span>Total Amount</span>
+          <strong id="checkoutTotal">₱50.00</strong>
+        </div>
+        <p class="shipping-note">Free shipping for orders worth ₱1,500 or more.</p>
+      </div>
+
+      <button type="submit" class="place-order-btn" id="placeOrderBtn">
+        Place Order
+      </button>
+      <p class="checkout-disclaimer">
+        Demo checkout only. No actual payment will be collected.
+      </p>
+    </form>
+  </div>
+</div>
+
+<!-- ORDER CONFIRMATION -->
+<div class="checkout-overlay" id="confirmationOverlay">
+  <div class="confirmation-modal">
+    <button type="button" class="checkout-close confirmation-close" id="closeConfirmation">×</button>
+    <div class="confirmation-check">✓</div>
+    <span class="checkout-eyebrow">ORDER SUCCESSFUL</span>
+    <h2>Thank You for Shopping!</h2>
+    <p>Your DressCart order has been placed successfully.</p>
+
+    <div class="receipt-box" id="receiptContent"></div>
+
+    <div class="receipt-actions">
+      <button type="button" class="receipt-print-btn" id="printReceipt">Print Receipt</button>
+      <button type="button" class="receipt-download-btn" id="downloadReceipt">Download Receipt</button>
+    </div>
+
+    <button type="button" class="continue-shopping-btn" id="finishShopping">
+      Continue Shopping
+    </button>
+  </div>
+</div>
+
+
+<!-- PART 4: CUSTOMER ORDERS -->
+<div class="orders-overlay" id="ordersOverlay">
+  <div class="orders-modal">
+    <div class="orders-header">
+      <div>
+        <span class="checkout-eyebrow">DRESSCART ACCOUNT</span>
+        <h2>My Orders</h2>
+      </div>
+      <button class="orders-close" id="closeOrders" type="button">×</button>
+    </div>
+
+    <div id="customerOrdersList">
+      <p class="orders-empty">You haven't placed any orders yet.</p>
+    </div>
+  </div>
+</div>
+<button id="trackLatestOrderBtn" class="sidebar-link">
+    <i data-lucide="map-pin"></i>
+    Track Latest Order
+</button>
+
+<!-- ORDER DETAILS -->
+<div class="orders-overlay" id="orderDetailsOverlay">
+  <div class="orders-modal">
+    <div class="orders-header">
+      <h2>Order Details</h2>
+      <button class="orders-close" id="closeOrderDetails" type="button">×</button>
+    </div>
+    <div id="orderDetailsContent"></div>
+  </div>
+</div>
+
+<!-- CANCEL ORDER -->
+<div class="orders-overlay" id="cancelOrderOverlay">
+  <div class="orders-modal">
+    <div class="orders-header">
+      <h2>Cancel Order</h2>
+      <button class="orders-close" id="closeCancelOrder" type="button">×</button>
+    </div>
+
+    <form id="cancelOrderForm">
+      <input type="hidden" id="cancelOrderId">
+
+      <label for="cancelReason">Why do you want to cancel?</label>
+      <select id="cancelReason" required>
+        <option value="">Select a reason</option>
+        <option>Ordered by mistake</option>
+        <option>Changed my mind</option>
+        <option>Found a better price</option>
+        <option>Wrong size or color</option>
+        <option>Delivery takes too long</option>
+        <option>Other</option>
+      </select>
+
+      <label for="cancelExplanation">Additional explanation (optional)</label>
+      <textarea id="cancelExplanation" rows="3"></textarea>
+
+      <button type="submit" class="cancel-confirm-btn">Confirm Cancellation</button>
+    </form>
+  </div>
+</div>
+
+<!-- ORDER TRACKING -->
+<div class="tracking-overlay" id="trackingOverlay">
+    <div class="tracking-modal">
+
+        <div class="tracking-header">
+            <h2>Track Your Order</h2>
+
+            <button id="closeTracking">
+                &times;
+            </button>
+        </div>
+
+        <p id="trackingOrderStatus">
+            Order Status: Pending
+        </p>
+
+        <p class="tracking-instruction">
+            Select your delivery location by clicking on the map.
+        </p>
+
+        <div id="deliveryMap"></div>
+
+        <p class="tracking-note">
+            The route shown is an estimated demo route.
+        </p>
+
+    </div>
+</div>
+    <!-- TOAST MESSAGE -->
+    <div class="toast" id="toast"></div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div>
+            <a href="#" class="logo">dress<span>cart.</span></a>
+            <p>Your Style, Your Story.</p>
+        </div>
+
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#categories">Categories</a>
+        </div>
+
+        <p class="copyright">
+            © 2026 DressCart. All rights reserved.
+        </p>
+
+    </footer>
+
+    
+
+
+
+<!-- CUSTOMER AUTHENTICATION MODAL -->
+<div class="modal-overlay" id="authModal">
+
+    <div class="auth-modal">
+
+        <button type="button" class="icon-btn auth-close" id="closeAuth">
+            <i data-lucide="x"></i>
+        </button>
+        
+<!-- LOGIN FORM -->
+
+        <div id="loginView">
+
+            <p class="eyebrow">WELCOME BACK</p>
+
+            <h2>Sign in to your account</h2>
+
+            <p class="auth-description">
+                Welcome back! We missed having you here.
+            </p>
+
+            <form id="loginForm">
+
+                <label for="loginEmail">Email Address</label>
+
+                <input type="email" id="loginEmail"
+                    placeholder="Enter your email"
+                    autocomplete="email" required>
+
+                <label for="loginPassword">Password</label>
+
+                <div class="password-field">
+
+                    <input type="password" id="loginPassword"
+                        placeholder="Enter your password"
+                        autocomplete="current-password" required>
+
+                    <button type="button" class="password-toggle"
+                        data-toggle="loginPassword"
+                        aria-label="Show password">
+                        <i data-lucide="eye"></i>
+                    </button>
+
+                </div>
+
+                <div class="auth-options">
+                    <label class="remember-option">
+                        <input type="checkbox" id="rememberMe">
+                        Remember me
+                    </label>
+
+                    <button type="button" class="text-btn"
+                        id="forgotPasswordBtn">
+                        Forgot Password?
+                    </button>
+                </div>
+
+                <button type="submit" class="auth-submit">
+                    Sign In
+                </button>
+
+            </form>
+
+            <div class="auth-divider">
+                <span>OR CONTINUE WITH</span>
+            </div>
+
+            <div class="social-buttons">
+
+                <button type="button" class="social-btn"
+                    id="googleLogin">
+
+                    <svg viewBox="0 0 48 48" aria-hidden="true">
+                        <path fill="#EA4335"
+                            d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                        <path fill="#4285F4"
+                            d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.73 7.18l7.66 5.94c4.47-4.13 7.11-10.2 7.11-17.59z"/>
+                        <path fill="#FBBC05"
+                            d="M10.53 28.59a14.4 14.4 0 0 1 0-9.18l-7.98-6.19a23.9 23.9 0 0 0 0 21.56l7.98-6.19z"/>
+                        <path fill="#34A853"
+                            d="M24 48c6.48 0 11.93-2.13 15.91-5.86l-7.66-5.94c-2.13 1.45-4.86 2.3-8.25 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 43.62 14.62 48 24 48z"/>
+                    </svg>
+
+                    Google
+
+                </button>
+
+                <button type="button" class="social-btn"
+                    id="facebookLogin">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill="#1877F2"
+                            d="M24 12a12 12 0 1 0-13.875 11.85v-8.38H7.078V12h3.047V9.356c0-3.007 1.792-4.669 4.533-4.669 1.313 0 2.686.235 2.686.235v2.953h-1.513c-1.49 0-1.955.925-1.955 1.874V12h3.328l-.532 3.47h-2.796v8.38A12.002 12.002 0 0 0 24 12z"/>
+                    </svg>
+
+                    Facebook
+
+                </button>
+
+            </div>
+
+            <p class="auth-switch">
+                Don't have an account?
+                <button type="button" class="text-btn"
+                    id="showRegister">
+                    Register
+                </button>
+            </p>
+
+        </div>
+
+        <!-- REGISTER FORM -->
+
+        <div id="registerView" hidden>
+
+            <p class="eyebrow">JOIN OUR COMMUNITY</p>
+
+            <h2>Create your account</h2>
+
+            <p class="auth-description">
+                Create an account and discover your next favorite style.
+            </p>
+
+            <form id="registerForm">
+
+                <label for="registerName">Full Name</label>
+
+                <input type="text" id="registerName"
+                    placeholder="Enter your full name"
+                    autocomplete="name" required>
+
+                <label for="registerEmail">Email Address</label>
+
+                <input type="email" id="registerEmail"
+                    placeholder="Enter your email"
+                    autocomplete="email" required>
+
+                <label for="registerPassword">Password</label>
+
+                <div class="password-field">
+
+                    <input type="password" id="registerPassword"
+                        placeholder="At least 8 characters"
+                        minlength="8"
+                        autocomplete="new-password" required>
+
+                    <button type="button" class="password-toggle"
+                        data-toggle="registerPassword"
+                        aria-label="Show password">
+                        <i data-lucide="eye"></i>
+                    </button>
+
+                </div>
+
+                <label for="confirmPassword">Confirm Password</label>
+
+                <div class="password-field">
+
+                    <input type="password" id="confirmPassword"
+                        placeholder="Confirm your password"
+                        minlength="8"
+                        autocomplete="new-password" required>
+
+                    <button type="button" class="password-toggle"
+                        data-toggle="confirmPassword"
+                        aria-label="Show password">
+                        <i data-lucide="eye"></i>
+                    </button>
+
+                </div>
+
+                <label class="terms-option">
+                    <input type="checkbox" id="agreeTerms" required>
+                    I agree to the Terms and Privacy Policy.
+                </label>
+
+                <button type="submit" class="auth-submit">
+                    Create Account
+                </button>
+
+            </form>
+
+            <p class="auth-switch">
+                Already have an account?
+                <button type="button" class="text-btn"
+                    id="showLogin">
+                    Sign In
+                </button>
+            </p>
+
+        </div>
+
+        <!-- FORGOT PASSWORD -->
+
+        <div id="forgotView" hidden>
+
+            <p class="eyebrow">ACCOUNT RECOVERY</p>
+
+            <h2>Forgot your password?</h2>
+
+            <p class="auth-description">
+                Enter your registered email address.
+                We'll send you a password reset link.
+            </p>
+
+            <form id="forgotForm">
+
+                <label for="forgotEmail">Email Address</label>
+
+                <input type="email" id="forgotEmail"
+                    placeholder="Enter your email"
+                    autocomplete="email" required>
+
+                <button type="submit" class="auth-submit">
+                    Send Reset Link
+                </button>
+
+            </form>
+
+            <p class="auth-switch">
+                Remember your password?
+                <button type="button" class="text-btn"
+                    id="backToLogin">
+                    Back to Login
+                </button>
+            </p>
+
+        </div>
+
+        <!-- AUTH STATUS MESSAGE -->
+
+        <p class="auth-message" id="authMessage"
+            role="status" aria-live="polite"></p>
+
+    </div>
+
+</div>
+
+<!-- JAVASCRIPT -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/app.js"></script>
+<script type="module" src="js/auth.js"></script>
+
+</body>
+</html>
+
+
